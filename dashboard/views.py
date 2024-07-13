@@ -3,7 +3,7 @@ from django.http import HttpResponse
 
 # Create your views here.
 def index(request):
-    return HttpResponse("<h1 style= 'color: teal;'>This is the Index Page! Well Done!!</h1>")
+    return render(request, 'dashboard/index.html')
 
 def staff(request):
-    return HttpResponse('This is the Staff Page! Doing Good!!')
+    return render (request, 'dashboard/staff.html')
