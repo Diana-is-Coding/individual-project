@@ -8,8 +8,8 @@ def index(request):
 def users(request):
     return render (request, 'dashboard/users.html')
     
-def kitchen(request):
-    return render (request, 'dashboard/kitchen.html')
+def food(request):
+    return render (request, 'dashboard/food.html')
     
 def medicine(request):
     return render (request, 'dashboard/medicine.html')
