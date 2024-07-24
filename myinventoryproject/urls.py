@@ -19,6 +19,6 @@ from django.urls import path, include
 from dashboard import views as index_views
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name= 'admin'),
     path('', include('dashboard.urls'))
 ]
