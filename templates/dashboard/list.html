@@ -14,12 +14,10 @@
                 </tr>
             </thead>
             <tbody>
-                {% for order in order %}
+                {% for NeededItem in NeededItem %}
                 <tr>
-                    <td>{{ order.name }}</td>
-                    <td>{{ order.name.category }}</td>
-                    <td>{{ order.order_quantity }}</td>
-                    <td>{{ order.customer.username }}</td>
+                    <td>{{ NeededItem.item }}</td>
+                    <td>{{ NeededItem.item.category }}</td>
                 </tr>
                 {% endfor %}
             </tbody>

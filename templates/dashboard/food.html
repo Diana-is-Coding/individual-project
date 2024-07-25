@@ -1,5 +1,5 @@
 {% extends 'partials/base.html' %}
-{% block title %}Products Page{% endblock %}
+{% block title %}Food Inventory Page{% endblock %}
 
 
 {% block content %}
@@ -31,16 +31,16 @@
                 </tr>
             </thead>
             <tbody>
-                {% for product in product %}
+                {% for Food in Food %}
                 <tr>
-                    <td>{{ product.name }}</td>
-                    <td>{{ product.category }}</td>
-                    <td>{{ product.quantity }}</td>
+                    <td>{{ Food.name }}</td>
+                    <td>{{ Food.category }}</td>
+                    <td>{{ Food.quantity }}</td>
                     <td>
                         <a class="btn btn-info btn-sm mr-2"
-                            href="{% url 'dashboard-products-edit' product.id %}">Edit</a>
+                            href="{% url 'dashboard-Foods-edit' Food.id %}">Edit</a>
                         <a class="btn btn-danger btn-sm ml-2"
-                            href="{% url 'dashboard-products-delete' product.id %}">Delete</a>
+                            href="{% url 'dashboard-Foods-delete' Food.id %}">Delete</a>
                     </td>
                 </tr>
                 {% endfor %}
