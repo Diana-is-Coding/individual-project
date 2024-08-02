@@ -29,10 +29,10 @@ SECRET_KEY = {
 }
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['8000-dianaiscodi-individualp-rygt8odxbu1.ws.codeinstitute-ide.net',
-'individual-project-l6gj.onrender.com/',]
+'individual-project-l6gj.onrender.com',]
 
 CSRF_TRUSTED_ORIGINS = [
     'https://8000-dianaiscodi-individualp-rygt8odxbu1.ws.codeinstitute-ide.net', 'https://individual-project-l6gj.onrender.com/',]
