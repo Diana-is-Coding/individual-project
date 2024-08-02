@@ -29,13 +29,13 @@ SECRET_KEY = {
 }
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['8000-dianaiscodi-individualp-rygt8odxbu1.ws.codeinstitute-ide.net',
 'individual-project-l6gj.onrender.com/',]
 
 CSRF_TRUSTED_ORIGINS = [
-    'https://8000-dianaiscodi-individualp-rygt8odxbu1.ws.codeinstitute-ide.net', 'individual-project-l6gj.onrender.com/',]
+    'https://8000-dianaiscodi-individualp-rygt8odxbu1.ws.codeinstitute-ide.net', 'https://individual-project-l6gj.onrender.com/',]
 
 # Application definition
 
@@ -47,6 +47,9 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'dashboard.apps.DashboardConfig',
+    'user.apps.UserConfig',
+    'crispy_forms',
+    'crispy_bootstrap4'
 ]
 
 MIDDLEWARE = [
@@ -112,6 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 # Internationalization
 # https://docs.djangoproject.com/en/5.0/topics/i18n/
@@ -135,6 +139,8 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = (BASE_DIR/"assets/")
+
+LOGIN_REDIRECT_URL = 'dashboard-index'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
