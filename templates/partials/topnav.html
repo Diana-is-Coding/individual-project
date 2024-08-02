@@ -1,6 +1,6 @@
 <div class="row">
-    <div class="col-md-4 mt-4">
-        <div class="card">
+    <div class="col-md-11 mt-4">
+        <div class="card offset-md-1">
             <div class="card-header bg-info text-white">
                 Information
             </div>
@@ -11,19 +11,21 @@
             </div>
         </div>
     </div>
-    <div class="col-md-8 mt-4">
-        <div class="card">
+</div>
+<div class="row">
+    <div class="col-md-11 mt-4">
+        <div class="card offset-md-1">
             <div class="card-header bg-info text-white">
-                Dashboard Statistics
+                Dashboard Details
             </div>
             <div class="card-body">
                 <div class="row">
                     <div class="col-md-4">
                         <a class="text-decoration-none text-dark" href="{% url 'dashboard-users' %}">
-                            <div class="card my-card shadow">
+                            <div class="card my-card shadow mb-2">
                                 <div class="card-body text-center">
-                                    <h4>Users <i class="fas fa-users"></i></h4>
-                                    <h3>2</h3>
+                                    <h4>Users</h4>
+                                    <h3>{{ user_count }}</h3>
                                 </div>
                             </div>
                         </a>
@@ -32,8 +34,8 @@
                         <a class="text-decoration-none text-dark" href="{% url 'dashboard-food' %}">
                             <div class="card my-card shadow">
                                 <div class="card-body text-center">
-                                    <h4>Food<i class="fas fa-box"></i></h4>
-                                    <h3>0</h3>
+                                    <h4>Food</h4>
+                                    <h3>{{ food_count }}</h3>
                                 </div>
                             </div>
                         </a>
@@ -42,8 +44,8 @@
                         <a class="text-decoration-none text-dark" href="{% url 'dashboard-medicine' %}">
                             <div class="card my-card shadow">
                                 <div class="card-body text-center">
-                                    <h4>Meds<i class="fas fa-box"></i></h4>
-                                    <h3>0</h3>
+                                    <h4>Meds</h4>
+                                    <h3>{{ medicine_count }}</h3>
                                 </div>
                             </div>
                         </a>
@@ -52,8 +54,8 @@
                         <a class="text-decoration-none text-dark" href="{% url 'dashboard-list' %}">
                             <div class="card my-card shadow">
                                 <div class="card-body text-center">
-                                    <h4>Needed<i class="fas fa-shipping-fast"></i></h4>
-                                    <h3>0</h3>
+                                    <h4>Needed</h4>
+                                    <h3>{{ NeededItem_count }}</h3>
                                 </div>
                             </div>
                         </a>
@@ -62,4 +64,4 @@
             </div>
         </div>
     </div>
-</div>
+</div>    

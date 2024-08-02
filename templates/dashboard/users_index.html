@@ -1,0 +1,97 @@
+{% load crispy_forms_tags %}
+<div>
+    <div class="row mt-4">
+        <div class="col-md-4">
+            <div class="card mb-2">
+                <div class="card-header">
+                    Add item to Pantry
+                </div>
+                <div class="card-body">
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <input class="btn btn-info btn-block" type="submit" value="Add">
+                    </form>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    Shopping List
+                </div>
+                <div class="card-body">
+                    <ul>
+                        {% for NeededItem in NeededItem %}
+                        {% if NeededItem.owner == user %}
+                        <li> {{NeededItem.item}} </li>
+                        {% endif %}
+                        {% endfor %}
+                    </ul>
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form|crispy }}
+                        <input class="btn btn-info btn-block" type="submit" value="Add to List">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card mb-2">
+                <div class="card-header">
+                    Pantry Records
+                </div>
+                <div class="card-body">
+                    <table class="table bg-white">
+                        <thead class="bg-info text-white">
+                            <tr>
+                                <th scope="col">Item</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for Food in Food %}
+                            {% if Food.owner == user %}
+                            <tr>
+                                <td>{{ food.name }}</td>
+                                <td>{{ food.category }}</td>
+                                <td>{{ food.quantity }}</td>
+                            </tr>
+                            {% endif %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header">
+                    Meds Cabinet
+                </div>
+                <div class="card-body">
+                    <table class="table bg-white">
+                        <thead class="bg-info text-white">
+                            <tr>
+                                <th scope="col">Item</th>
+                                <th scope="col">Category</th>
+                                <th scope="col">Quantity</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for Medicine in Medicine %}
+                            {% if Medicine.owner == user %}
+                            <tr>
+                                <td>{{ medicine.name }}</td>
+                                <td>{{ medicine.category }}</td>
+                                <td>{{ meedicine.quantity }}</td>
+                            </tr>
+                            {% endif %}
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

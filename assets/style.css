@@ -1,0 +1,24 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Sue+Ellen+Francisco&display=swap');
+
+
+
+html {
+    height: 100%;
+}
+
+body{
+    background-color: rgb(230, 219, 241);
+    font-family: "Sue Ellen Francisco", cursive;
+    color: black;
+    height: 100%;
+    display: flex;
+    flex-direction: colunm;
+}
+/* HEADINGS */
+
+h1,h2,h3,h4,h5,h6{
+    font-family: "Amatic SC", sans-serif;
+    color: black;
+    font-weight: 700;
+    font-style: normal;
+}

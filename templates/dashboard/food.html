@@ -7,7 +7,7 @@
 {% include 'partials/topnav.html' %}
 
 <div class="row my-4">
-    <div class="col-md-4">
+    <div class="col-md-8 offset-md-2">
         {% if messages %}
         {% for message in messages %}
         <div class="alert alert-{{ message.tags }}">
@@ -23,14 +23,15 @@
             </form>
         </div>
     </div>
-    <div class="col-md-8">
+</div>
+<div class="row my-4">
+    <div class="col-md-10 offset-md-1">
         <table class="table bg-white">
             <thead class="bg-info text-white">
                 <tr>
-                    <th scope="col">Name</th>
+                    <th scope="col">Food</th>
                     <th scope="col">Category</th>
                     <th scope="col">Quantity</th>
-                    <th scope="col">Activity</th>
                 </tr>
             </thead>
             <tbody>
@@ -39,7 +40,6 @@
                     <td>{{ Food.name }}</td>
                     <td>{{ Food.category }}</td>
                     <td>{{ Food.quantity }}</td>
-                    <td>
                         <a class="btn btn-info btn-sm mr-2"
                             href="{% url 'dashboard-Foods-edit' Food.id %}">Edit</a>
                         <a class="btn btn-danger btn-sm ml-2"

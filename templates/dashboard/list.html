@@ -17,10 +17,11 @@
                 </tr>
             </thead>
             <tbody>
-                {% for NeededItem in NeededItem %}
+                {% for Grocery in Grocery %}
                 <tr>
-                    <td>{{ NeededItem.item }}</td>
-                    <td>{{ NeededItem.item.category }}</td>
+                    <td>{{ Grocery.item }}</td>
+                    <td>{{ Grocery.item.category }}</td>
+                    <td><input> </td>
                 </tr>
                 {% endfor %}
             </tbody>
