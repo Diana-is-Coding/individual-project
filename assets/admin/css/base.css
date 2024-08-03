@@ -3,7 +3,7 @@
 */
 
 /* VARIABLE DEFINITIONS */
-html[data-theme="light"],
+/* html[data-theme="light"],
 :root {
     --primary: #79aec8;
     --secondary: #417690;
@@ -38,8 +38,8 @@ html[data-theme="light"],
     --message-error-bg: #ffefef;
 
     --darkened-bg: #f8f8f8; /* A bit darker than --body-bg */
-    --selected-bg: #e4e4e4; /* E.g. selected table cells */
-    --selected-row: #ffc;
+    /* --selected-bg: #e4e4e4; /* E.g. selected table cells */
+    /* --selected-row: #ffc;
 
     --button-fg: #fff;
     --button-bg: var(--secondary);
@@ -84,7 +84,7 @@ html[data-theme="light"],
         "Segoe UI Emoji",
         "Segoe UI Symbol",
         "Noto Color Emoji";
-}
+} */ */
 
 html, body {
     height: 100%;
@@ -97,7 +97,7 @@ body {
     font-family: var(--font-family-primary);
     color: var(--body-fg);
     background: var(--body-bg);
-}
+} */
 
 /* LINKS */
 
