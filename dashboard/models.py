@@ -19,6 +19,7 @@ TYPE = (
     ('bags', 'bags'),
     ('cans', 'cans'),
     ('packs', 'packs'),
+    ('kg', 'kg'),
 )
 
 class Food(models.Model):
@@ -37,13 +38,13 @@ class Medicine(models.Model):
     name = models.CharField(max_length=100, null=True)
     owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     category = models.CharField(max_length=20, choices=medCATEGORY, null=True)
-    quantity = models.PositiveIntegerField(null=True)
+    doses = models.PositiveIntegerField(null=True)
 
     class Meta:
         verbose_name_plural = 'Med Cabinet'
 
     def __str__(self):
-        return f'{self.name}-{self.quantity}'
+        return f'{self.name}-{self.doses} doses'
 
 class Grocery(models.Model):
     item = models.ForeignKey(Food, on_delete=models.CASCADE)

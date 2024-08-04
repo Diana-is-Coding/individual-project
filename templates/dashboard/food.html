@@ -1,13 +1,13 @@
 {% extends 'partials/base.html' %}
 {% block title %}Food Inventory Page{% endblock %}
-
+{% load crispy_forms_tags %}
 
 {% block content %}
 
 {% include 'partials/topnav.html' %}
 
 <div class="row my-4">
-    <div class="col-md-8 offset-md-2">
+    <div class="col-md-3 offset-md-1 pl-0">
         {% if messages %}
         {% for message in messages %}
         <div class="alert alert-{{ message.tags }}">
@@ -19,31 +19,31 @@
             <h5>Add New Products</h5>
             <hr>
             <form method="POST">
+                {% csrf_token %}
+                {{ food_form|crispy }}
                 <input class="btn btn-success btn-block" type="submit" value="Add">
             </form>
         </div>
     </div>
-</div>
-<div class="row my-4">
-    <div class="col-md-10 offset-md-1">
+    <div class="col-md-7">
         <table class="table bg-white">
             <thead class="bg-info text-white">
                 <tr>
                     <th scope="col">Food</th>
                     <th scope="col">Category</th>
                     <th scope="col">Quantity</th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
-                {% for Food in Food %}
+                {% for food_item in food_items %}
                 <tr>
-                    <td>{{ Food.name }}</td>
-                    <td>{{ Food.category }}</td>
-                    <td>{{ Food.quantity }}</td>
-                        <a class="btn btn-info btn-sm mr-2"
-                            href="{% url 'dashboard-Foods-edit' Food.id %}">Edit</a>
-                        <a class="btn btn-danger btn-sm ml-2"
-                            href="{% url 'dashboard-Foods-delete' Food.id %}">Delete</a>
+                    <td>{{ food_item.name }}</td>
+                    <td>{{ food_item.category }}</td>
+                    <td>{{ food_item.quantity }} {{ food_item.units }}</td>
+                    <td>
+                        <a class="btn btn-info btn-sm mr-2" href="{% url 'dashboard-food-update' food_item.id %}">Edit</a>
+                        <a class="btn btn-danger btn-sm ml-2" href="{% url 'dashboard-food-delete' food_item.id %}">Delete</a>
                     </td>
                 </tr>
                 {% endfor %}

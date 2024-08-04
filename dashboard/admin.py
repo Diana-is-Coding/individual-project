@@ -6,7 +6,7 @@ class FoodAdmin(admin.ModelAdmin):
     list_filter = ('category',)
 
 class MedicineAdmin(admin.ModelAdmin):
-    list_display = ('name', 'category', 'quantity',)
+    list_display = ('name', 'category', 'doses',)
     list_filter = ('category',)
 
 # Register your models here.
