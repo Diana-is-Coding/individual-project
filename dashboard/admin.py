@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Goods, List
+from .models import Goods
 
 class GoodsAdmin(admin.ModelAdmin):
     list_display = ('name', 'category', 'quantity',)
@@ -7,4 +7,3 @@ class GoodsAdmin(admin.ModelAdmin):
 
 # Register your models here.
 admin.site.register(Goods, GoodsAdmin)
-admin.site.register(List)

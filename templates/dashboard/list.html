@@ -1,30 +1,31 @@
 {% extends 'partials/base.html' %}
-{% block title %}Shopping List{% endblock %}
+{% block title %}To-buy{% endblock %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 
 {% include 'partials/topnav.html' %}
 
 <div class="row my-4">
-    <div class="col-md-11 mt-4">
-        <table class="table bg-white">
-            <thead class="bg-info text-white">
-                <tr>
-                    <th scope="col">Product</th>
-                    <th scope="col">Category</th>
-                    <th scope="col">Bought</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for groceries in groceries %}
-                <tr>
-                    <td>{{ groceries.item }}</td>
-                    <td>{{ groceries.item.category }}</td>
-                    <td>{{ groceries.checked }} </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+    <div class="col-md-10 mt-4">
+        <h1>Shopping List</h1>
+        <form method="post">
+            {% csrf_token %}
+            {{ form|crispy }}
+            <button class="btn btn-success" type="submit">Add</button>
+        </form>
+        <hr>
+        <h2>You need to buy:</h2>
+        <div class="row my-4">
+            {% for item in groceries %}
+            <ul class="col-md-8 ml-4">
+                <li>{{ item }}</li>
+            </ul>
+            <div class="col-md-1 mt-2">
+                <input type="checkbox" name="" id="">
+            </div>
+            {% endfor %}
+        </div>
     </div>
 </div>
 

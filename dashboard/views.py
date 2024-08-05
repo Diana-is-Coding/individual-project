@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from .models import Goods, List
-from .forms import GoodsForm
+from .forms import GoodsForm, ListForm
 from django.contrib.auth.models import User
 from user.models import Profile
 
@@ -77,8 +77,22 @@ def goods_update(request, pk):
 @login_required
 def list(request):
     groceries = List.objects.all()
+    
+    if 'groceries' not in request.session:
+        request.session['groceries'] = []
+    if request.method == 'POST':
+        form = ListForm(request.POST)
+        if form.is_valid():
+            item = form.cleaned_data['item']
+            groceries = request.session['groceries']
+            groceries.append(item.name)
+            request.session['groceries'] = groceries
+            return redirect('dashboard-list')
+    else:
+        form = ListForm()
 
     context={
-        'groceries':groceries,
+        'form':form,
+        'groceries': request.session['groceries']
     }
     return render (request, 'dashboard/list.html', context)
