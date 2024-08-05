@@ -28,11 +28,11 @@ https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js
 <body>
 
   {% include 'partials/nav.html' %}
+  <div class="container main">
+    {% block content %}
 
-  {% block content %}
-
-  {% endblock %}
-
+    {% endblock %}
+  </div>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
     crossorigin="anonymous"></script>

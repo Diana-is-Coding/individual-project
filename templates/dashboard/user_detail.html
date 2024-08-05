@@ -1,0 +1,48 @@
+{% extends 'partials/base.html' %}
+{% block title %} User Info {% endblock %}
+
+
+{% block content %}
+
+{% include 'partials/topnav.html' %}
+
+<div class="container row">
+    <div class="col-md-11 mt-4 pt-4">
+        <div class="card offset-md-1">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <span class="h4">Detailed Information</span>
+                        <hr>
+                        <table class="table bg-white table-borderless">
+                            <tbody>
+                                <tr>
+                                    <th scope="row">Name</th>
+                                    <td>{{ customers.username }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Email</th>
+                                    <td>{{ customers.email }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Phone</th>
+                                    <td>{{ customers.profile.phone }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">Address</th>
+                                    <td>{{ customers.profile.address }}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="col-md-4">
+                        <img src="{{ customers.profile.image.url }}" alt="profile-image" class="img-thumbnail">
+                    </div>
+                </div>
+                <hr>
+                <a href="{% url 'dashboard-users' %}" class="btn btn-secondary">Back</a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

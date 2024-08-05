@@ -1,13 +1,13 @@
 {% extends 'partials/base.html' %}
-{% block title %}Food Inventory Page{% endblock %}
+{% block title %}Inventory Page{% endblock %}
 {% load crispy_forms_tags %}
 
 {% block content %}
 
 {% include 'partials/topnav.html' %}
 
-<div class="row my-4">
-    <div class="col-md-3 offset-md-1 pl-0">
+<div class="row my-4 offset-md-1">
+    <div class="col-md-3 mr-1">
         {% if messages %}
         {% for message in messages %}
         <div class="alert alert-{{ message.tags }}">
@@ -16,34 +16,34 @@
         {% endfor %}
         {% endif %}
         <div class="card card-body">
-            <h5>Add New Products</h5>
+            <h5>Add to Pantry</h5>
             <hr>
             <form method="POST">
                 {% csrf_token %}
-                {{ food_form|crispy }}
+                {{ form|crispy }}
                 <input class="btn btn-success btn-block" type="submit" value="Add">
             </form>
         </div>
     </div>
-    <div class="col-md-7">
+    <div class="col-md-7 ml-4">
         <table class="table bg-white">
-            <thead class="bg-info text-white">
+            <thead class="bg-custom text-white">
                 <tr>
-                    <th scope="col">Food</th>
+                    <th scope="col">Foods</th>
                     <th scope="col">Category</th>
                     <th scope="col">Quantity</th>
                     <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
-                {% for food_item in food_items %}
+                {% for item in items %}
                 <tr>
-                    <td>{{ food_item.name }}</td>
-                    <td>{{ food_item.category }}</td>
-                    <td>{{ food_item.quantity }} {{ food_item.units }}</td>
+                    <td>{{ item.name }}</td>
+                    <td>{{ item.category }}</td>
+                    <td>{{ item.quantity }} {{ item.units }}</td>
                     <td>
-                        <a class="btn btn-info btn-sm mr-2" href="{% url 'dashboard-food-update' food_item.id %}">Edit</a>
-                        <a class="btn btn-danger btn-sm ml-2" href="{% url 'dashboard-food-delete' food_item.id %}">Delete</a>
+                        <a class="btn btn-info btn-sm mr-2" href="{% url 'dashboard-goods-update' item.id %}">Edit</a>
+                        <a class="btn btn-danger btn-sm ml-2" href="{% url 'dashboard-goods-delete' item.id %}">Delete</a>
                     </td>
                 </tr>
                 {% endfor %}

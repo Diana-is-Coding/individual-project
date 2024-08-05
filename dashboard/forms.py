@@ -1,12 +1,7 @@
 from django import forms
-from .models import Food, Medicine
+from .models import Goods
 
-class FoodForm(forms.ModelForm):
+class GoodsForm(forms.ModelForm):
     class Meta:
-        model = Food
-        fields = ['name', 'category', 'quantity', 'units']
-
-class MedicineForm(forms.ModelForm):
-    class Meta:
-        model = Medicine
-        fields = ['name', 'category', 'owner', 'doses']
+        model = Goods
+        fields = ['name', 'category', 'owner', 'quantity', 'units']

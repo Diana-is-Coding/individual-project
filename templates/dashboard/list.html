@@ -6,7 +6,7 @@
 {% include 'partials/topnav.html' %}
 
 <div class="row my-4">
-    <div class="col-md-10 offset-md-1 pl-0">
+    <div class="col-md-11 mt-4">
         <table class="table bg-white">
             <thead class="bg-info text-white">
                 <tr>
@@ -16,11 +16,11 @@
                 </tr>
             </thead>
             <tbody>
-                {% for Grocery in Grocery %}
+                {% for groceries in groceries %}
                 <tr>
-                    <td>{{ Grocery.item }}</td>
-                    <td>{{ Grocery.item.category }}</td>
-                    <td>{{ Grocery.checked }} </td>
+                    <td>{{ groceries.item }}</td>
+                    <td>{{ groceries.item.category }}</td>
+                    <td>{{ groceries.checked }} </td>
                 </tr>
                 {% endfor %}
             </tbody>

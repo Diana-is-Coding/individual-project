@@ -2,26 +2,85 @@
 
 
 
-html {
+html{
     height: 100%;
 }
 
-body{
-    background-color: rgb(230, 219, 241);
-    font-family: "Sue Ellen Francisco", cursive;
-    color: black;
-    height: 100%;
-    display: flex;
-    flex-direction: colunm;
-}
 /* HEADINGS */
 
 h1,h2,h3,h4,h5,h6{
     font-family: "Amatic SC", sans-serif;
-    color: black;
+    color: rgb(56, 36, 48);
     font-weight: 700;
     font-style: normal;
 }
 
+/* Header Bars */
+.navbar{
+    background-color: rgb(114, 102, 138);
+    font-family: 'Amatic SC', sans-serif;
+    font-weight: 700;
+}
 
+.card-header{
+    background-color: rgb(114, 102, 138);
+    font-family: 'Amatic SC', sans-serif;
+    font-weight: 700;
+}
+
+.bg-custom{
+    background-color: rgb(114, 102, 138);
+    font-family: 'Amatic SC', sans-serif;
+    font-weight: 700;
+}
+
+/* Buttons */
+.btn-danger{
+    background-color: rgb(240, 159, 156);
+}
+
+.btn-danger:hover{
+    background-color: ;
+}
+
+.btn-secondary{
+    background-color: rgb(219, 211, 206);
+}
+
+.btn-secondary:hover{
+    background-color: ;
+}
+
+.btn-info{
+    background-color: rgb(160, 128, 224);
+}
+
+.btn-info:hover{
+    background-color: ;
+}
+
+.btn-success{
+    background-color: rgb(111, 120, 120);
+}
+
+.btn-success:hover{
+    background-color: ;
+}
+
+/* Decorations */
+hr{
+    color: rgb(114, 102, 138);
+}
+
+body{
+    background-color: rgb(224, 211, 220);
+}
+
+.main{
+    font-family: "Sue Ellen Francisco", cursive;
+    color: rgb(64, 64, 64);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
 

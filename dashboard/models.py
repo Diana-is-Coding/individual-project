@@ -1,14 +1,12 @@
 from django.db import models
 from django.contrib.auth.models import User
+from datetime import datetime
 
 # Create your models here.
 CATEGORY = (
     ('Pantry', 'Pantry'),
     ('Chilled', 'Chilled'),
     ('Frozen', 'Frozen'),
-)
-
-medCATEGORY = (
     ('Supliment', 'Supliment'),
     ('Prescription', 'Prescription'),
 )
@@ -20,40 +18,27 @@ TYPE = (
     ('cans', 'cans'),
     ('packs', 'packs'),
     ('kg', 'kg'),
+    ('doses', 'doses'),
 )
 
-class Food(models.Model):
+class Goods(models.Model):
     name = models.CharField(max_length=100, null=True)
     category = models.CharField(max_length=20, choices=CATEGORY, null=True)
+    owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     quantity = models.PositiveIntegerField( null=True)
     units = models.CharField(choices=TYPE, null=True)
+    added = models.DateTimeField(auto_now=True)
     
     class Meta:
-        verbose_name_plural = 'Food'
+        verbose_name_plural = 'Inventory Items'
    
     def __str__(self):
         return f'{self.name}-{self.quantity}-{self.units}'
-
-class Medicine(models.Model):
-    name = models.CharField(max_length=100, null=True)
+        
+class List(models.Model): 
+    item = models.ForeignKey(Goods, on_delete=models.CASCADE, null=True)
     owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
-    category = models.CharField(max_length=20, choices=medCATEGORY, null=True)
-    doses = models.PositiveIntegerField(null=True)
-
-    class Meta:
-        verbose_name_plural = 'Med Cabinet'
+    added = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f'{self.name}-{self.doses} doses'
-
-class Grocery(models.Model):
-    item = models.ForeignKey(Food, on_delete=models.CASCADE)
-    item = models.ForeignKey(Medicine, on_delete=models.CASCADE)
-    checked = models.BooleanField(default=None)
-    owner = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
-
-    class Meta:
-        verbose_name_plural = 'Shopping List'
-
-    def __str__(self):
-        return f'{self.item}'
+        return f'{self.item} for {self.owner} added to list on {self.added}'
