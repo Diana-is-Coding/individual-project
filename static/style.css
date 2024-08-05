@@ -35,12 +35,16 @@ h1,h2,h3,h4,h5,h6{
 }
 
 /* Buttons */
+.btn{
+    border: 0;
+}
+
 .btn-danger{
-    background-color: rgb(240, 159, 156);
+    background-color: rgb(253, 214, 212);
 }
 
 .btn-danger:hover{
-    background-color: ;
+    background-color: rgb(240, 159, 156);
 }
 
 .btn-secondary{
@@ -48,23 +52,23 @@ h1,h2,h3,h4,h5,h6{
 }
 
 .btn-secondary:hover{
-    background-color: ;
+    background-color: rgb(168, 152, 142);
 }
 
 .btn-info{
-    background-color: rgb(160, 128, 224);
+    background-color: rgb(111, 85, 161);
 }
 
 .btn-info:hover{
-    background-color: ;
+    background-color: rgb(75, 52, 119);
 }
 
 .btn-success{
-    background-color: rgb(111, 120, 120);
+    background-color: rgb(161, 184, 184);
 }
 
 .btn-success:hover{
-    background-color: ;
+    background-color: rgb(94, 126, 126);
 }
 
 /* Decorations */

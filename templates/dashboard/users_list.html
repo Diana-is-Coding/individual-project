@@ -1,14 +1,10 @@
-{% extends 'partials/base.html' %}
-{% block title %}To-buy{% endblock %}
+
 {% load crispy_forms_tags %}
 
 {% block content %}
 
-{% if user.is_authenticated and user.is_staff and user.is_superuser %}
-{% include 'partials/topnav.html' %}
 
-
-<div class="row my-4">
+<div class="row my-4 offset-md-1">
     <div class="col-md-10 mt-4">
         {% if messages %}
         {% for message in messages %}
@@ -17,7 +13,7 @@
         </div>
         {% endfor %}
         {% endif %}
-        <h1>Shopping List</h1>
+        <h1 class="mt-8">Shopping List</h1>
         <form method="post">
             {% csrf_token %}
             {{ form|crispy }}
@@ -41,7 +37,5 @@
         </form>
     </div>
 </div>
-{% else %}
-{% include 'dashboard/users_list.html' %}
-{% endif %}
+
 {% endblock %}

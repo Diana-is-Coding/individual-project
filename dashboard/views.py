@@ -5,28 +5,50 @@ from .models import Goods, List
 from .forms import GoodsForm, ListForm
 from django.contrib.auth.models import User
 from user.models import Profile
+from django.contrib import messages
+
 
 # Create your views here.
 
 @login_required
 def index(request):
-    return render(request, 'dashboard/index.html')
+    
+    if request.method == 'POST':
+        form = GoodsForm(request.POST)
+        if form.is_valid():
+            form.save()
+            goods_name = form.cleaned_data.get('name')
+            messages.success(request, f'{goods_name} has been added')
+            return redirect('dashboard-index')
+    else:
+        form = GoodsForm()
+
+    groceries = List.objects.all()
+
+    context = {
+        'form':form,
+    }
+
+    return render(request, 'dashboard/index.html', context)
+
 
 @login_required
 # @allowed_users(allowed_roles=['Admin'])
 def users(request):
     customers = User.objects.all()
+
     context={
-        'customers':customers
+        'customers':customers,
     }
     return render (request, 'dashboard/users.html', context)
 
 @login_required
 # @allowed_users(allowed_roles=['Admin'])
 def user_detail(request, pk):
-    customers = User.objects.get(id=pk)
+    customers = User.objects.get(id=pk,)
+
     context={
-        'customers':customers
+        'customers':customers,
     }
     return render(request, 'dashboard/user_detail.html', context)
 
@@ -39,7 +61,9 @@ def goods(request):
         form = GoodsForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('dashboard-goods')
+            goods_name = form.cleaned_data.get('name')
+            messages.success(request, f'{goods_name} has been added')
+            return redirect('dashboard-index')
     else:
         form = GoodsForm()
 
@@ -52,9 +76,10 @@ def goods(request):
 @login_required
 def goods_delete(request, pk):
     item = Goods.objects.get(id=pk)
+
     if request.method == 'POST':
         item.delete()
-        return redirect('dashboard-goods-delete')
+        return redirect('dashboard-index')
     return render(request, 'dashboard/goods_delete.html')
 
 @login_required
@@ -65,7 +90,7 @@ def goods_update(request, pk):
         form = GoodsForm(request.POST, instance= item)
         if form.is_valid():
             form.save()
-            return redirect('dashboard-goods-update')
+            return redirect('dashboard-index')
     else:
         form = GoodsForm()
 
@@ -87,12 +112,19 @@ def list(request):
             groceries = request.session['groceries']
             groceries.append(item.name)
             request.session['groceries'] = groceries
+            goods_name = form.cleaned_data.get('item')
+            messages.success(request, f'{goods_name} has been added to your list')
             return redirect('dashboard-list')
+        elif 'clear_list' in request.POST:
+            request.session['groceries'] = []
+            messages.success(request, 'The list has been cleared')
+            return redirect('dashboard-list')
+            
     else:
         form = ListForm()
 
     context={
         'form':form,
-        'groceries': request.session['groceries']
+        'groceries':request.session['groceries'],
     }
-    return render (request, 'dashboard/list.html', context)
+    return render (request,'dashboard/list.html', context)

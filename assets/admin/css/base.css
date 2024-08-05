@@ -101,7 +101,7 @@ body {
 
 /* LINKS */
 
-a:link, a:visited {
+/* a:link, a:visited {
     color: var(--link-fg);
     text-decoration: none;
     transition: color 0.15s, background 0.15s;
@@ -126,7 +126,7 @@ a.section:link, a.section:visited {
 
 a.section:focus, a.section:hover {
     text-decoration: underline;
-}
+} */
 
 /* GLOBAL DEFAULTS */
 

@@ -12,7 +12,7 @@
                 <form method="POST">
                     {% csrf_token %}
                     {{ food_form|crispy }}
-                    <a class="btn btn-secondary" href="{% url 'dashboard-food' %}">Cancel</a>
+                    <a class="btn btn-secondary" href="{% url 'dashboard-goods' %}">Cancel</a>
                     <input class="btn btn-info" type="submit" value="Update">
                 </form>
             </div>

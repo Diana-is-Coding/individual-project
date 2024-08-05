@@ -15,7 +15,7 @@
                 <form method="POST">
                     {% csrf_token %}
                     {{ form }}
-                    <a class="btn btn-secondary" href="{% url 'dashboard-food' %}">Cancel</a>
+                    <a class="btn btn-secondary" href="{% url 'dashboard-goods' %}">Cancel</a>
                     <input class="btn btn-danger" type="submit" value="Confirm">
                 </form>
             </div>
