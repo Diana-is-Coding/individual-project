@@ -12,6 +12,9 @@ from django.contrib import messages
 
 @login_required
 def index(request):
+    user_count = User.objects.all().count()
+    food_count= Goods.objects.all().count()
+    list_count= List.objects.all().count()
     
     if request.method == 'POST':
         form = GoodsForm(request.POST)
@@ -27,6 +30,9 @@ def index(request):
 
     context = {
         'form':form,
+        'user_count':user_count,
+        'food_count':food_count,
+        'list_count':list_count,
     }
 
     return render(request, 'dashboard/index.html', context)
