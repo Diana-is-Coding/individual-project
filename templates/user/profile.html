@@ -1,20 +1,15 @@
 {% extends 'partials/base.html' %}
 {% block title %} Profile Page {% endblock %}
-{% load static %}
+{% load cloudinary_static %}
 
 {% block content %}
 <div class="container">
     <div class="row my-4">
-        <div class="col-md-4">
-        </div>
-        <div class="col-md-8">
+        <div class="col-md-10">
             <div class="card">
-                <div class="card-header text-white">
-                    Profile Page
-                </div>
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-md-8">
+                        <div class="col-md-7 pr-3">
                             <span class="h4">Profile Information</span>
                             <a href="{% url 'user-profile-update' %}" class="btn btn-info bt-sm float-right mb-1">Edit</a>
                             <table class="table bg-white table-boderless">
@@ -40,7 +35,7 @@
                         </div>
                     <div class="image-container">
                         {% if "placeholder" in user.profile.image.url %}
-                        <img class="card-img-top" src="{% static 'media/default.jpg' %}"
+                        <img class="card-img-top" src="https://res.cloudinary.com/dobgdhksa/image/upload/t_profilepics/v1723556831/default_hd37bq.jpg"
                           alt="placeholder image">
                         {% else %}
                         <img class="card-img-top" src=" {{ user.profile.image.url }}"

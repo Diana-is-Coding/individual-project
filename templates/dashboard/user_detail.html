@@ -1,6 +1,6 @@
 {% extends 'partials/base.html' %}
 {% block title %} User Info {% endblock %}
-{% load static %}
+{% load cloudinary_static %}
 
 {% block content %}
 
@@ -36,7 +36,12 @@
                         </table>
                     </div>
                     <div class="col-md-4">
+                        {% if "placeholder" in user.profile.image.url %}
+                        <img class="card-img-top" src="https://res.cloudinary.com/dobgdhksa/image/upload/t_profilepics/v1723556831/default_hd37bq.jpg"
+                          alt="placeholder image">
+                        {% else %}
                         <img src="{{ customers.profile.image.url }}" alt="profile-image" class="img-thumbnail">
+                        {% endif %}
                     </div>
                 </div>
                 <hr>

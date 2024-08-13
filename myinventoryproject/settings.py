@@ -29,7 +29,7 @@ SECRET_KEY = {
 }
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = False 
 
 ALLOWED_HOSTS = ['8000-dianaiscodi-individualp-rygt8odxbu1.ws.codeinstitute-ide.net',
 'individual-project-l6gj.onrender.com',]
@@ -40,6 +40,7 @@ CSRF_TRUSTED_ORIGINS = [
 # Application definition
 
 INSTALLED_APPS = [
+    'whitenoise.runserver_nostatic',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -56,13 +57,13 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'myinventoryproject.urls'
@@ -135,17 +136,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
+
 STATIC_URL = '/static/'
-
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, 'static'),
-# )
-
 STATIC_ROOT = (BASE_DIR/'static')
 
 MEDIA_ROOT = (BASE_DIR/'media')
-
 MEDIA_URL ='/media/'
+
+CLOUDINARY_STORAGE = {
+    'default': (os.environ.get("CLOUDINARY_URL")),
+}
 
 LOGIN_REDIRECT_URL = 'dashboard-index'
 

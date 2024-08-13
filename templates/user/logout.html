@@ -1,11 +1,11 @@
 {% extends 'partials/base.html' %}
 {% block title %} Logout Page {% endblock %}
-{% load static %}
+{% load cloudinary_static %}
 
 {% block content %}
 <div class="container">
     <div class="row mt-5">
-        <div class="col-md-6 offset-md-3">
+        <div class="col-md-8 offset-md-2">
             <div class="border bg-white p-3">
                 <div class="alert alert-danger">
                     <h4>
@@ -17,6 +17,11 @@
                 <p>Did you not mean to logout?</p>
                 <a href="{% url 'user-login' %}">Log back in</a>
             </div>
+        </div>
+    </div>
+    <div class="row mt-2">
+        <div class="offset-md-3">
+            <img src="https://res.cloudinary.com/dobgdhksa/image/upload/v1723558113/Logo_f0aewr.png" alt="Purple Haze Inventory">
         </div>
     </div>
 </div>

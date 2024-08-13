@@ -33,29 +33,36 @@ def index(request):
 
 
 @login_required
-# @allowed_users(allowed_roles=['Admin'])
 def users(request):
     customers = User.objects.all()
+    user_count = customers.count()
+    food_count= Goods.objects.all().count()
+    list_count= List.objects.all().count()
 
     context={
         'customers':customers,
+        'user_count':user_count,
+        'food_count':food_count,
+        'list_count':list_count,
     }
     return render (request, 'dashboard/users.html', context)
 
 @login_required
-# @allowed_users(allowed_roles=['Admin'])
 def user_detail(request, pk):
     customers = User.objects.get(id=pk,)
 
     context={
         'customers':customers,
     }
-    return render(request, 'dashboard/user_detail.html', context)
+    return render(request, 'dashboard/users_detail.html', context)
 
 
 @login_required    
 def goods(request):
     items = Goods.objects.all()
+    food_count= items.count()
+    user_count = User.objects.all().count()
+    list_count= List.objects.all().count()
     
     if request.method == 'POST':
         form = GoodsForm(request.POST)
@@ -70,8 +77,20 @@ def goods(request):
     context = {
         'items':items,
         'form':form,
+        'user_count': user_count,
+        'food_count': food_count,
+        'list_count': list_count,
     }
     return render (request, 'dashboard/goods.html', context)
+
+@login_required    
+def user_dash(request):
+    items = Goods.objects.all()
+    
+    context = {
+        'items':items,
+    }
+    return render (request, 'templates/dashboard/users_index.html', context)
 
 @login_required
 def goods_delete(request, pk):
@@ -102,6 +121,9 @@ def goods_update(request, pk):
 @login_required
 def list(request):
     groceries = List.objects.all()
+    list_count= groceries.count()
+    user_count = User.objects.all().count()
+    food_count= Goods.objects.all().count()
     
     if 'groceries' not in request.session:
         request.session['groceries'] = []
@@ -126,5 +148,11 @@ def list(request):
     context={
         'form':form,
         'groceries':request.session['groceries'],
+        'user_count':user_count,
+        'food_count':food_count,
+        'list_count':list_count,
     }
     return render (request,'dashboard/list.html', context)
+
+
+

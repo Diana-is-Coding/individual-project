@@ -1,9 +1,9 @@
-{% load static %}
+{% load cloudinary_static %}
 
 <nav class="navbar navbar-expand-lg">
     {% if user.is_authenticated %}
     <div class="container navbar-container">
-        <a class="navbar-brand text-white" href="{% url 'dashboard-index' %}">Pantry Inventory</a>
+        <a class="navbar-brand text-white" href="{% url 'dashboard-index' %}"><img class="logo" src="https://res.cloudinary.com/dobgdhksa/image/upload/t_profilepics/v1723558113/Logo_f0aewr.png" alt="project logo"></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -11,7 +11,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item active">
-                    <a class="nav-link text-white" href="{% url 'dashboard-index' %}">Dashboard <span
+                    <a class="nav-link text-white" href="{% url 'dashboard-index' %}"> Pantry <span
                             class="sr-only">(current)</span></a>
                 </li>
             </ul>

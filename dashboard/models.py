@@ -1,6 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
 from datetime import datetime
+from django.templatetags.static import static
+from django_resized import ResizedImageField
 
 # Create your models here.
 CATEGORY = (

@@ -1,12 +1,14 @@
 {% extends 'partials/base.html' %}
 {% block title %} Login Page {% endblock %}
-{% load static %}
+{% load cloudinary_static %}
 {% load crispy_forms_tags %}
 
 {% block content %}
 <div class="container">
     <div class="row mt-5">
-        <div class="col-md-6 offset-md-3">
+        <div class="col-md-4"><img src="https://res.cloudinary.com/dobgdhksa/image/upload/t_Logo/v1723558113/Logo_f0aewr.png" alt="Purple Haze Inventory"></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-6">
             <div class="border p-3 bg-white">
                 <h3>Account Login</h3>
                 <hr>
