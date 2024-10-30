@@ -34,12 +34,12 @@
                             </table>
                         </div>
                     <div class="image-container">
-                        {% if "placeholder" in user.profile.image.url %}
-                        <img class="card-img-top" src="https://res.cloudinary.com/dobgdhksa/image/upload/t_profilepics/v1723556831/default_hd37bq.jpg"
-                          alt="placeholder image">
+                        {% if user.profile.image %}
+                        <img class="card-img-top" src="{{ user.profile.image }}"
+                        alt="profile-image">
                         {% else %}
-                        <img class="card-img-top" src=" {{ user.profile.image.url }}"
-                          alt="profile-image">
+                        <img class="card-img-top" src="static/media/default.jpg"
+                          alt="placeholder image">
                         {% endif %}
                         <div class="image-flash">
                     </div>
